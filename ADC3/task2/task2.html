@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div id="main"></div>
+    <button type="button" id="submit" onclick="submit()">Submit</button>
+
+    <script>
+
+      let a = prompt("enter");
+
+      for (i = 0; i < a; i++) {
+        let b = (document.getElementById(
+          "main"
+        ).innerHTML += ` <label for="">Name:</label>
+    <br>
+    <input type="text" id='${i}' name='${i}' class="fields">
+<br><br>
+`);
+      }
+
+      let submit = () => {
+        const fields = document.querySelectorAll(".fields");
+       const arr = Array.from(fields);
+
+        for (i = 0; i < arr.length; i++) {
+         document.write(`${arr[i].value}<br/>`);
+        }
+      };
+    </script>
+  </body>
+</html>

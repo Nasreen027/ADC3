@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for="user_input">Enter Word OR Paragraph</label>
+<br><br>
+<input type="text" name="user_input" id="user_input">
+<br><br>
+<button type="button" onclick="function_ROT13_cipher()">Encrypt</button>
+<br><br>
+
+
+    <script>
+const paragraph=document.createElement('p');
+
+        let function_ROT13_cipher = () => {
+            let input = document.getElementById("user_input").value;
+            let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let rot13_cipher = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+
+            let result = ' ';
+            
+            for (let i = 0; i < input.length; i++) {
+                let find_index = letters.indexOf(input[i]);
+                if (find_index === -1) {
+                    result += input[i];
+                }
+                else {
+                    result += rot13_cipher[find_index];
+                }
+            }
+          
+        paragraph.innerText=result;
+        document.body.appendChild(paragraph);
+
+        }
+        // let encrypted=function_ROT13_cipher('Pakistan');
+        // console.log(encrypted);
+        // console.log(function_ROT13_cipher());
+    </script>
+</body>
+
+</html>

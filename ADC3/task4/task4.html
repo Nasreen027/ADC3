@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div>
+        <div class="form-control">
+          <label for="txtName">Select Competetion</label>
+          <select id="selectList">
+            <option value="5,5">CS GO</option>
+            <option value="2,3">Web Design</option>
+            <option value="1,2">Database Design</option>
+            <option value="3,4">Web Development</option>
+          </select>
+        </div>
+
+        <div class="form-control mt-5">
+          <label for="txtNumber">Enter a number</label>
+          <input type="number" id="txtNumber" />
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const selectList = document.getElementById("selectList");
+    const txtNumber = document.getElementById("txtNumber");
+
+    selectList.addEventListener("change", (e) => {
+      const selectedValue = selectList.value;
+      const selectedValues = selectedValue.split(",");
+
+      const min = Math.min(...selectedValues);
+      const max = Math.max(...selectedValues);
+
+      txtNumber.min = min;
+      txtNumber.max = max;
+    });
+
+    txtNumber.addEventListener("change", (e) => {
+      if (txtNumber.value > txtNumber.max) {
+        txtNumber.value = "";
+      } else if (txtNumber.value < txtNumber.min) {
+        txtNumber.value = "";
+      }
+    });
+  </script>
+</html>

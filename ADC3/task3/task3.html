@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+       table{
+        margin: 50px auto;
+       }
+        button{
+            height: 65px;
+           width: 70px; 
+           text-align: center;
+           position: relative;
+           /* top: -10px; */
+           /* font-size: 40px; */
+        }
+        input{
+            height: 55px;
+            width: 300px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+      
+                <div id="tb">
+                    <table>
+                        <tr>
+                            <td colspan="4">
+                                    <input type="text" value="" id="inp">
+                            </td>
+                        </tr>
+                        <tr>
+                             <td ><button onclick="num(7)">7</button></td>
+                             <td ><button onclick="num(4)">4</button></td>
+                             <td ><button onclick="num(1)">1</button></td>
+                             <td ><button onclick="num(0)">0</button></td>
+                        </tr>
+                        <tr>
+                            <td ><button onclick="num(8)">8</button></td>
+                            <td ><button onclick="num(5)">5</button></td>
+                            <td ><button onclick="num(2)">2</button></td>
+                            <td><button  onclick="cle()">AC</button></td>
+
+                       </tr>    
+                       <tr>
+                        <td ><button onclick="num(9)">9</button></td>
+                        <td ><button onclick="num(6)">6</button></td>
+                        <td ><button onclick="num(3)">3</button></td>
+                        <td ><button onclick="num('.')">.</button></td>
+                       </tr>
+                       <tr>
+                        <td><button onclick="op('/')">÷</button></td>
+                        <td><button onclick="op('*')">x</button></td>
+                        <td ><button onclick="op('-')">-</button></td>
+                        <td><button onclick="op('+')">+</button></td>
+                       </tr>
+                       <tr>
+                        <td ><button onclick="res()">=</button></td>
+                        <td><button onclick="perc()">%</button></td>
+                        <td ><button onclick="del()">CE</button></td>
+                       </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+    
+
+     num = (n) => {
+  
+        document.getElementById("inp").value += n;
+    }
+    op=(o) =>{
+        document.getElementById("inp").value += o;
+
+    }
+     res=()=>{
+        var r = eval(document.getElementById("inp").value);
+        document.getElementById("inp").value = r;
+    }
+    del= ()=>{
+        var a = document.getElementById("inp").value;
+        document.getElementById("inp").value = a.substr(0,a.length-1);
+    }
+     cle = ()=>{
+        document.getElementById("inp").value = " ";
+    }
+    perc = () =>{
+        var p = eval(document.getElementById("inp").value);
+        document.getElementById("inp").value = p/100;
+    }
+
+    </script>
+</body>
+</html>
